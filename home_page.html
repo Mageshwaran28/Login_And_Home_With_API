@@ -4,9 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="home.css" />
   </head>
   <body>
+    <div class="add">
+      <input type="text" class="path" placeholder="Enter the image link or path" />
+      <input type="text" class="img-name" placeholder="Enter the name" />
+      <input type="text" class="img-desc" placeholder="Enter the description" />
+      <div class="btn">
+        <button onClick="addToggle()">Cancel</button>
+        <button onClick="add()">Add</button>
+      </div>
+    </div>
     <header>
       <div class="profile">
         <svg
@@ -30,9 +40,11 @@
           <div class="grid">Gridview</div>
           <div class="table">Tableview</div>
         </div>
-        <div class="signout">
-            Sign-out
+        <div class="add-del">
+          <div class="add-card">Add</div>
+          <div class="delete-all">DeleteAll</div>
         </div>
+        <div class="signout">Sign-out</div>
       </div>
     </header>
     <div class="head grid">
@@ -40,9 +52,9 @@
       <div>Name</div>
       <div>Description</div>
     </div>
-    <section>
-
-    </section>
+    <section></section>
+    <code></code>
+    <div class="no-data">No data found</div>
     <script src="api.js"></script>
   </body>
 </html>

@@ -10,11 +10,58 @@ body {
     color: #fff;
 }
 
-
 header {
     display: flex;
     justify-content: space-between;
     padding: 10px;
+}
+
+.add {
+    display: none;
+    flex-direction: column;
+    gap: 30px;
+    width: 400px;
+    position: fixed;
+    padding: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(100px);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.add.active {
+    display: flex;
+}
+
+.add input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.add .btn {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn button {
+    width: 30%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:first-child {
+    background-color: red;
+}
+
+button:nth-child(2) {
+    background-color: green;
 }
 
 .search-group {
@@ -45,32 +92,37 @@ header {
     color: #fff;
 }
 
-.right{
+.right {
     display: flex;
     place-items: center;
     gap: 40px;
 }
 
-.grid-table{
+.grid-table,
+.add-del {
     display: flex;
     gap: 20px;
 }
 
-.grid-table .grid , 
-.grid-table .table {
+.grid-table .grid,
+.grid-table .table,
+.add-del .add-card,
+.add-del .delete-all {
     cursor: pointer;
 }
 
-.grid-table .grid{
+.grid-table .grid,
+.add-card {
     position: relative;
 }
 
-.grid-table.grid .grid{
+.grid-table.grid .grid {
     color: #003366;
     border-bottom: 1.5px solid #003366;
 }
 
-.grid-table .grid::after{
+.grid-table .grid::after,
+.add-card::after {
     content: "";
     position: absolute;
     height: 20px;
@@ -79,7 +131,7 @@ header {
     background: #fff;
 }
 
-.grid-table.table .table{
+.grid-table.table .table {
     color: #003366;
     border-bottom: 1.5px solid #003366;
 }
@@ -91,83 +143,125 @@ header {
     margin-right: 10px;
 }
 
-.signout{
+.signout {
     cursor: pointer;
     padding-right: 10px;
 }
 
-.head{
+.head {
     padding: 40px 40px 0px 55px;
 }
 
-.head.grid{
+.head.grid {
     display: none;
 }
 
-img{
+img {
     width: 100px;
     height: 100px;
     border-radius: 4px;
     transition: .5s;
 }
 
-.cards{
+.cards {
     display: grid;
     padding: 40px;
     gap: 20px;
 }
 
-.cards.grid{
+.cards.grid {
     flex-wrap: wrap;
     gap: 20px;
-    grid-template-columns: repeat(auto-fit , minmax(200px , 1fr));
-    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+    justify-content: start;
 }
 
-.cards.table{
+.cards.table {
     grid-template-columns: 100%;
     padding-top: 10px;
 }
 
-.cards .card{
+.cards .card {
     background-color: #fff;
     color: #003366;
     box-shadow: 0px 0px 5px #003366;
     display: grid;
     border-radius: 5px;
     padding: 15px;
-    cursor: pointer;
+    height: auto;
 }
 
-.cards .card:hover{
+.cards .card:hover {
     background-color: transparent;
     color: #fff;
 }
 
-.cards .card:hover img{
-    transform: scale(1.1);
-}
-
-.card .card-grp{
+.card .card-grp {
     height: 100%;
     flex-direction: column;
     display: flex;
     align-items: center;
-    justify-content: start;
+    position: relative;
 }
 
 .cards.table .card-grp,
-.head{
+.head {
     display: grid;
     grid-template-columns: 100px 200px 1fr;
+    padding-right: 30px;
+    gap: 20px;
 }
 
-.cards.table .card-grp img{
+.cards.table .card-grp img {
     width: 60px;
     height: 60px;
 }
 
-.card div{
+.card div {
     text-align: justify;
     word-wrap: break-word;
+}
+
+.no-data {
+    display: none;
+    justify-content: center;
+    font-size: xx-large;
+    font-weight: bolder;
+    width: 100%;
+    color: #003366;
+    text-shadow: 2px 2px 5px #fff;
+}
+
+.no-data.active {
+    display: flex;
+}
+
+.card-grp i {
+    font-size: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    height: auto;
+}
+
+.card-grp textarea {
+    display: block;
+    overflow: hidden;
+    resize: none;
+    font-family: 'Sarabun', sans-serif;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #003366;
+}
+
+.card-grp .name {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.cards .card:hover textarea {
+    color: #fff;
 }
