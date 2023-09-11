@@ -141,8 +141,7 @@ get('.search-bar').addEventListener('input', (event) => {
 })
 
 get('.delete-all').addEventListener('click', () => {
-    localStorage.setItem('cards', '[]');
-    // localStorage.removeItem('cards');
+    localStorage.removeItem('cards');
     get('.cards').innerHTML = '';
     if (get('.head').className == "head") {
         noTable();
